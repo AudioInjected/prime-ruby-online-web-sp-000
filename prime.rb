@@ -1,17 +1,11 @@
 def prime?(num)
-  if num < 1 || num == 1
+  def prime?(num)
+  if num < 0 or num == 0 or num == 1
     return false
-  elsif num <= 3
-    return true
-  elsif num % 2 == 0 || num % 3 == 0
-    return false
-  end
-  i = 5
-  while i * i <= num
-    if num % i == 0 or num % (i + 2) == 0
-      return false
+  else
+    (2..num).to_a.all? do |possible_factor|
+      num % possible_factor == 0
     end
-    i += 6
   end
-  return true
+end
 end
